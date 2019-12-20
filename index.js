@@ -25,9 +25,14 @@ getCompanyList(args.country)
 } )
 .then( (response) => {
     if(response.length > 0) {
-        response.map( (persons) => {
-            entities.persons.push(...persons);
-        } )
+        response.map( (r) => {
+            if(r.persons && r.persons.length > 0) {
+                entities.persons.push(...r.persons);
+            }
+            if(r.memberships && r.memberships.length > 0) {
+                entities.memberships.push(...r.memberships);
+            }
+        } );
     }
 
     console.log( JSON.stringify(entities, null, 4) )
