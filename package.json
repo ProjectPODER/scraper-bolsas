@@ -1,5 +1,5 @@
 {
-  "name": "scraper-mujeres",
+  "name": "scraper-bolsas",
   "version": "1.0.0",
   "description": "Scraper para las bolsas de valores del mundo",
   "main": "index.js",
@@ -9,10 +9,20 @@
   "author": "Fernando Matzdorf",
   "license": "ISC",
   "dependencies": {
+    "acorn": "^7.1.0",
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
     "command-line-args": "^5.1.1",
+    "company-laundry": "git+http://git@gitlab.rindecuentas.org/equipo-qqw/company-laundry.git",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^3.6.0",
+    "fs": "0.0.1-security",
     "moment": "^2.24.0",
-    "nightmare": "^3.0.2"
+    "nightmare": "^3.0.2",
+    "pdf2html": "^2.5.0",
+    "puppeteer": "^2.0.0",
+    "puppeteer-extra": "^3.1.9",
+    "puppeteer-extra-plugin-stealth": "^2.4.9",
+    "request-promise-native": "^1.0.8"
   }
 }

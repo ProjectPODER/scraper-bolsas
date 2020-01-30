@@ -1,2 +1,4 @@
 node_modules
 .esm-cache
+data/*
+pdfs/*

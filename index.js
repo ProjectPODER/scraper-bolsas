@@ -1,6 +1,6 @@
 const moment = require('moment');
 const fs = require('fs');
-const { getCompanyList, processList } = require('./lib/list');
+const { getCompanyList, processList, saveEntities } = require('./lib/list');
 const commandLineArgs = require('command-line-args');
 
 const optionDefinitions = [
@@ -14,27 +14,39 @@ let entities = {
 }
 
 getCompanyList(args.country)
-.then( (companies) => {
-    if(companies) {
-        entities.companies = companies;
-        return processList(args.country, entities.companies);
+.then( (results) => {
+    if(results.hasOwnProperty('status')) {
+        console.log(results.results);
+        process.exit(1);
+    }
+    if(results.hasOwnProperty('companies')) {
+        // Ya está todo procesado
+        entities.companies = results.companies;
+        return [{
+            persons: results.persons,
+            memberships: results.memberships
+        }]
     }
     else {
-        console.log('ERROR');
+        // Solo se ha procesado la lista de empresas
+        entities.companies = results;
+        return processList(args.country, entities.companies);
     }
 } )
 .then( (response) => {
     if(response.length > 0) {
         response.map( (r) => {
-            if(r.persons && r.persons.length > 0) {
+            if(r.hasOwnProperty('persons') && r.persons.length > 0) {
                 entities.persons.push(...r.persons);
             }
-            if(r.memberships && r.memberships.length > 0) {
+            if(r.hasOwnProperty('memberships') && r.memberships.length > 0) {
                 entities.memberships.push(...r.memberships);
             }
         } );
     }
 
-    console.log( JSON.stringify(entities, null, 4) )
-    console.log('DONE!');
+    // console.log( JSON.stringify(entities, null, 4) );
+    console.log('Writing documents...');
+    saveEntities(entities, args.country);
+    console.log('DONE');
 } );
