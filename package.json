@@ -7,7 +7,7 @@
     "test": "test"
   },
   "author": "Fernando Matzdorf",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "acorn": "^7.1.0",
     "axios": "^0.19.0",

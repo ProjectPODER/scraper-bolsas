@@ -1,5 +1,6 @@
 # scraper-bolsas
-Scraper de las bolsas de valores de Latinoamérica y España
+
+Scraper for some stock exchange websites in Latin America and Spain.
 
 ### Usage
 
@@ -7,12 +8,12 @@ Scraper de las bolsas de valores de Latinoamérica y España
 
 ### Output
 
-3 archivos de JSON lines:
+3 files consisting of JSON lines:
 
 *  data/[SCRAPER]-companies.json
 *  data/[SCRAPER]-memberships.json
 *  data/[SCRAPER]-persons.json
 
-### Notas
+### Notes
 
-** Bolivia: ** este scraper intenta parsear PDFs, pero la conversión y los resultados son inconsistentes.
+** Bolivia: ** this scraper attempts to parse PDFs, but conversion and results are inconsistent.
