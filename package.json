@@ -10,7 +10,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "acorn": "^7.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.30.2",
     "cheerio": "^1.0.0-rc.3",
     "command-line-args": "^5.1.1",
     "company-laundry": "git+http://git@gitlab.rindecuentas.org/equipo-qqw/company-laundry.git",
